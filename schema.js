@@ -2,6 +2,7 @@ const axios = require('axios');
 const { 
   GraphQLObjectType, 
   GraphQLInt, 
+  GraphQLFloat,
   GraphQLString, 
   GraphQLBoolean, 
   GraphQLList ,
@@ -21,6 +22,14 @@ const LaunchType = new GraphQLObjectType({
   })
 });
 
+const DimensionsType = new GraphQLObjectType({
+  name: 'Height',
+  fields: () => ({
+    feet: { type: GraphQLFloat },
+    lb: { type: GraphQLInt }
+  })
+});
+
 // Rocket Type
 const RocketType = new GraphQLObjectType({
   name: 'Rocket',
@@ -31,7 +40,10 @@ const RocketType = new GraphQLObjectType({
     first_flight: { type: GraphQLString },
     flickr_images: { type: GraphQLList(GraphQLString) },
     description: { type: GraphQLString },
-    success_rate_pct: { type: GraphQLInt }
+    success_rate_pct: { type: GraphQLInt },
+    height: { type: DimensionsType },    
+    diameter: { type: DimensionsType },
+    mass: { type: DimensionsType }
   })
 });
 
