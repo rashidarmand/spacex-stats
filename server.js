@@ -11,7 +11,7 @@ app.use(cors());
 
 app.use('/graphql', graphqlHTTP({
   schema,
-  graphiql: true
+  graphiql: false // set to true for development. Graphiql is very useful !
 }));
 
 app.use(express.static('public'));

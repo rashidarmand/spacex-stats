@@ -9,6 +9,16 @@ const {
   GraphQLSchema
 } = require('graphql');
 
+// Links for launch
+const LinksType = new GraphQLObjectType({
+  name: 'Links',
+  fields: () => ({
+    mission_patch: { type: GraphQLString },
+    wikipedia: { type: GraphQLString },
+    video_link: { type: GraphQLString } 
+  })
+});
+
 // Launch Type
 const LaunchType = new GraphQLObjectType({
   name: 'Launch',
@@ -18,12 +28,15 @@ const LaunchType = new GraphQLObjectType({
     launch_year: { type: GraphQLString },
     launch_date_local: { type: GraphQLString },
     launch_success: { type: GraphQLBoolean },
-    rocket: { type: RocketType }
+    rocket: { type: RocketType },
+    details: { type: GraphQLString },
+    links: { type: LinksType }
   })
 });
 
+// Dimensions for Rocket
 const DimensionsType = new GraphQLObjectType({
-  name: 'Height',
+  name: 'Dimensions',
   fields: () => ({
     feet: { type: GraphQLFloat },
     lb: { type: GraphQLInt }
@@ -44,6 +57,29 @@ const RocketType = new GraphQLObjectType({
     height: { type: DimensionsType },    
     diameter: { type: DimensionsType },
     mass: { type: DimensionsType }
+  })
+});
+
+const HQType = new GraphQLObjectType({
+  name: 'Headquarters',
+  fields: () => ({
+    address: { type: GraphQLString },    
+    city: { type: GraphQLString },
+    state: { type: GraphQLString }
+  })
+});
+
+const CompanyType = new GraphQLObjectType({
+  name: 'CompanyInfo',
+  fields: () => ({
+    name: { type: GraphQLString },
+    founder: { type: GraphQLString },
+    founded: { type: GraphQLInt },
+    employees: { type: GraphQLInt },
+    vehicles: { type: GraphQLInt },
+    launch_sites: { type: GraphQLInt },
+    summary: { type: GraphQLString },
+    headquarters: { type: HQType }
   })
 });
 
@@ -82,6 +118,13 @@ const RootQuery = new GraphQLObjectType({
       },
       resolve(parent, { rocket_id }) {
         return axios.get(`https://api.spacexdata.com/v3/rockets/${ rocket_id }`)
+          .then(res => res.data);
+      }
+    },
+    company: {
+      type: CompanyType,
+      resolve(parent, args) {
+        return axios.get(`https://api.spacexdata.com/v3/info`)
           .then(res => res.data);
       }
     }
