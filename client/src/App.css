@@ -1,0 +1,130 @@
+.nav-item {
+  font-size: 1.3rem;
+}
+
+.active-nav {
+  font-weight: bold;
+  background: rgb(85, 85, 85, 0.5);
+  border-radius: 5px;
+}
+
+.navbar-toggler-icon {
+  border-radius: 5px;
+}
+
+.thumbs {
+  height: 25%;
+  display: flex;
+  justify-content: space-around;
+  overflow: scroll;
+}
+
+.img-style {
+  width: 100%;
+}
+
+.prime-img {
+  border-radius:5px;
+}
+
+.button-row {
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+}
+
+.home-hero {
+  display: flex;
+  align-items: center;
+  text-align: center;
+  margin: 15px 0px;
+  border-radius: 10px;
+  min-height: 350px;
+  background-image: url('https://www.spacex.com/sites/spacex/files/spacex_about_company_01_0.jpg');
+}
+
+.home-details {
+  margin: 15px 0px;
+}
+
+.black {
+  background: rgb(6, 6, 6);
+}
+
+#notfound .notfound {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+
+.notfound {
+  max-width: 520px;
+  width: 100%;
+  line-height: 1.4;
+  text-align: center;
+}
+
+.notfound .notfound-404 {
+  position: relative;
+  height: 240px;
+}
+
+.notfound .notfound-404 h1 {
+  font-family: 'Montserrat', sans-serif;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+      -ms-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  font-size: 252px;
+  font-weight: 900;
+  margin: 0px;
+  text-transform: uppercase;
+  letter-spacing: -40px;
+  margin-left: -20px;
+}
+
+.notfound .notfound-404 h1>span {
+  text-shadow: -8px 0px 0px #666;
+}
+
+.notfound h2 {
+  font-family: 'Cabin', sans-serif;
+  font-size: 20px;
+  font-weight: 400;
+  text-transform: uppercase;
+  margin-top: 0px;
+  margin-bottom: 25px;
+}
+
+@media only screen and (max-width: 767px) {
+  .notfound .notfound-404 {
+    height: 200px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 200px;
+  }
+}
+
+@media only screen and (max-width: 480px) {
+  .notfound .notfound-404 {
+    height: 162px;
+  }
+  .notfound .notfound-404 h1 {
+    font-size: 162px;
+    height: 150px;
+    line-height: 162px;
+  }
+  .notfound h2 {
+    font-size: 16px;
+  }
+}
