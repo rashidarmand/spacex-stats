@@ -1,5 +1,5 @@
-# Space-X Stats
-## Space-X fan page with information on launches and rockets
+# SpaceX Stats
+## SpaceX fan page with information on launches and rockets
 
 ### Technologies Utilized
 * React
@@ -19,4 +19,4 @@
 
 
 
-#### Visit website => [Space-X Stats](https://spacex-stats.herokuapp.com/)
+#### Visit website => [SpaceX Stats](https://spacex-stats.herokuapp.com/)
